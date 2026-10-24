@@ -505,12 +505,15 @@
         <!-- Últimas Noticias -->
         <section id="noticias" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-end mb-10">
-                    <div>
-                        <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest">Acontecimientos UNO</h2>
-                        <h3 class="text-3xl font-extrabold text-uno-navy">Últimas Noticias y Eventos</h3>
-                    </div>
-                </div>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
+    <div>
+        <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest">Acontecimientos UNO</h2>
+        <h3 class="text-3xl font-extrabold text-uno-navy">Últimas Noticias y Eventos Universitarios</h3>
+    </div>
+    <button onclick="alert('Cargando más noticias...')" class="bg-uno-blue hover:bg-uno-navy text-white text-sm font-bold py-2 px-4 rounded-lg shadow-md transition flex items-center">
+        Ver todas las noticias <i class="fas fa-arrow-right ml-2"></i>
+    </button>
+</div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Noticia 1 -->
