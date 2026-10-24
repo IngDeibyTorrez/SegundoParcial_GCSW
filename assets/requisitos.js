@@ -2,7 +2,9 @@
  * Módulo de Gestión de Requisitos de Admisión - Universidad UNO Santa Cruz
  * Asignatura: Gestión de Configuración del Software (GCS)
  * Autor: Eddy Mamani
- * Descripción: Manejador interactivo de validación de documentos y progreso de admisión
+ * Versión: 1.0.0
+ * Descripción: Manejador interactivo de validación de documentos, cálculo de avance,
+ *              persistencia en LocalStorage y exportación a WhatsApp/Impresión.
  */
 
 const requisitosData = {
@@ -41,14 +43,37 @@ const requisitosData = {
     }
 };
 
+const STORAGE_KEY = "uno_requisitos_estado_v1";
 let tipoSeleccionado = 'nacionales';
 let estadoChecklist = {};
 
-// Renderiza el asistente interactivo
+// Cargar persistencia de LocalStorage
+function cargarEstadoLocalStorage() {
+    try {
+        const guardado = localStorage.getItem(STORAGE_KEY);
+        if (guardado) {
+            estadoChecklist = JSON.parse(guardado) || {};
+        }
+    } catch (e) {
+        console.warn("No se pudo cargar el estado desde localStorage:", e);
+    }
+}
+
+// Guardar persistencia en LocalStorage
+function guardarEstadoLocalStorage() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(estadoChecklist));
+    } catch (e) {
+        console.warn("No se pudo guardar en localStorage:", e);
+    }
+}
+
+// Inicializa el asistente interactivo
 function inicializarAsistenteRequisitos() {
     const contenedor = document.getElementById('asistente-requisitos-app');
     if (!contenedor) return;
 
+    cargarEstadoLocalStorage();
     renderizarInterfaz();
 }
 
@@ -59,7 +84,20 @@ function cambiarTipoRequisito(tipo) {
 
 function alternarDocumento(id) {
     estadoChecklist[id] = !estadoChecklist[id];
+    guardarEstadoLocalStorage();
     actualizarProgreso();
+}
+
+function reiniciarChecklistRequisitos() {
+    if (confirm("¿Deseas reiniciar la lista de requisitos marcados?")) {
+        estadoChecklist = {};
+        guardarEstadoLocalStorage();
+        renderizarInterfaz();
+    }
+}
+
+function imprimirChecklistRequisitos() {
+    window.print();
 }
 
 function renderizarInterfaz() {
@@ -69,7 +107,7 @@ function renderizarInterfaz() {
     const data = requisitosData[tipoSeleccionado];
 
     contenedor.innerHTML = `
-        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-8 mt-8">
+        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-8 mt-8 print:p-0 print:border-none print:shadow-none">
             <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-200 gap-4">
                 <div>
                     <span class="inline-block bg-uno-blue/10 text-uno-blue text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
@@ -78,7 +116,7 @@ function renderizarInterfaz() {
                     <h4 class="text-2xl font-extrabold text-uno-navy">${data.titulo}</h4>
                     <p class="text-sm text-slate-500 mt-1">${data.descripcion}</p>
                 </div>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2 print:hidden">
                     <button onclick="cambiarTipoRequisito('nacionales')" class="px-4 py-2 rounded-lg text-xs font-bold transition ${tipoSeleccionado === 'nacionales' ? 'bg-uno-blue text-white shadow' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">
                         Nacionales
                     </button>
@@ -120,9 +158,14 @@ function renderizarInterfaz() {
             </div>
 
             <!-- Acciones -->
-            <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="text-xs text-slate-500">
-                    <i class="fas fa-info-circle text-uno-blue mr-1"></i> Asesoría de admisiones disponible de lunes a sábado.
+            <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 print:hidden">
+                <div class="flex items-center gap-2">
+                    <button onclick="reiniciarChecklistRequisitos()" title="Limpiar casillas" class="px-3.5 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fas fa-undo"></i> Reiniciar
+                    </button>
+                    <button onclick="imprimirChecklistRequisitos()" title="Imprimir checklist" class="px-3.5 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fas fa-print"></i> Imprimir Ficha
+                    </button>
                 </div>
                 <button onclick="enviarWhatsAppAdmisiones()" id="btn-whatsapp-req" class="w-full sm:w-auto px-6 py-3 bg-uno-green hover:bg-emerald-600 text-white font-bold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">
                     <i class="fab fa-whatsapp text-lg"></i> Consultar por WhatsApp
