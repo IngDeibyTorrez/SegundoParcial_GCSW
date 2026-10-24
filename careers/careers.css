@@ -1,0 +1,22 @@
+.career-dialog { border: 0; padding: 0; width: min(1100px, calc(100% - 24px)); max-height: 90dvh; border-radius: 20px; color: #002147; background: #f8fafc; box-shadow: 0 24px 80px #00214755; }
+.career-dialog::backdrop { background: #00152ac9; backdrop-filter: blur(5px); }
+.career-header { position: sticky; top: 0; z-index: 1; background: #003366; color: white; padding: 24px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.career-header h2 { font-size: 30px; font-weight: 800; }
+.career-header p { font-size: 12px; color: #f3e5ab; }
+.career-close { border-radius: 50%; width: 44px; height: 44px; flex-shrink: 0; background: #ffffff20; font-size: 24px; }
+.career-content { padding: 28px; }
+.career-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.career-content h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+.career-content p, .career-content li { font-size: 14px; line-height: 1.8; color: #475569; }
+.career-resolution { display: inline-block; padding: 6px 12px; border-radius: 20px; background: #f3e5ab; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+.career-section { border: 1px solid #e2e8f0; border-radius: 12px; background: white; margin-bottom: 12px; overflow: hidden; }
+.career-section summary { cursor: pointer; padding: 18px 20px; font-weight: 700; }
+.career-section[open] summary { background: #eef3f8; border-bottom: 1px solid #e2e8f0; }
+.career-section-content { padding: 20px; }
+.career-section ul { padding-left: 22px; list-style: disc; }
+.career-section li + li { margin-top: 8px; }
+.career-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.career-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 8px; padding: 10px 18px; background: #003366; color: white; font-size: 14px; font-weight: 700; text-decoration: none; }
+.career-action-whatsapp { background: #15803d; }
+.career-dialog :focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
+@media (max-width: 640px) { .career-intro { grid-template-columns: 1fr; } .career-content { padding: 16px; } .career-header { padding: 16px; } .career-header h2 { font-size: 24px; } }
