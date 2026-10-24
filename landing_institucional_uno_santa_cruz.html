@@ -132,7 +132,7 @@
                     <a href="#carreras" class="px-3 py-2 hover:text-uno-blue transition">Carreras</a>
                     <a href="#subsedes" class="px-3 py-2 hover:text-uno-blue transition">SubSedes</a>
                     <a href="#requisitos" class="px-3 py-2 hover:text-uno-blue transition">Requisitos</a>
-                    <a href="#alumni" class="px-3 py-2 hover:text-uno-blue transition">Red Alumni</a>
+                    <a href="#alumni" class="px-3 py-2 hover:text-uno-blue transition">Red Alumno</a>
                     <a href="#noticias" class="px-3 py-2 hover:text-uno-blue transition">Noticias</a>
                     <a href="#contacto" class="px-3 py-2 hover:text-uno-blue transition">Contacto</a>
                 </nav>
@@ -174,7 +174,7 @@
             <a href="#carreras" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Carreras</a>
             <a href="#subsedes" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">SubSedes</a>
             <a href="#requisitos" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Requisitos</a>
-            <a href="#alumni" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Red Alumni</a>
+            <a href="#alumni" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Red Alumno</a>
             <a href="#noticias" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Noticias</a>
             <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Contacto</a>
 
@@ -470,36 +470,216 @@
             </div>
         </section>
 
-        <!-- Estadísticas & Red Alumni -->
-        <section id="alumni" class="py-16 bg-uno-navy text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-b border-slate-700/60 pb-12 mb-12">
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">+20,000</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Graduados Egresados</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">8</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Carreras Profesionales</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">6</span>
-                        <span class="text-sm text-slate-300 mt-1 block">SubSedes Nacionales</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">25+</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Años de Trayectoria</span>
-                    </div>
-                </div>
+        <!-- ============================================================
+             RED ALUMNO · Comunidad de graduados UNO
+             1. Cifras institucionales (cuentan al aparecer en pantalla)
+             2. Beneficios para egresados
+             3. Registro: arma un mensaje de WhatsApp con los datos
+             ============================================================ -->
+        <section id="alumni" aria-labelledby="red-alumno-titulo" class="relative overflow-hidden bg-uno-navy py-16 text-white md:py-24">
+            <!-- Fondo decorativo -->
+            <div aria-hidden="true" class="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-uno-gold/10 blur-3xl"></div>
+            <div aria-hidden="true" class="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-uno-blue/50 blur-3xl"></div>
 
-                <div class="max-w-3xl mx-auto text-center">
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-4">Red Alumni - Comunidad de Graduados UNO</h3>
-                    <p class="text-slate-300 text-sm sm:text-base mb-6">Mantenemos el vínculo profesional con nuestros egresados brindando seguimiento laboral, diplomados de actualización y redes de contacto institucional en todo el país.</p>
-                    <button onclick="alert('Portal de Red Alumni en mantenimiento. Próximamente registro de egresados.')" class="bg-uno-gold hover:bg-yellow-500 text-uno-navy font-bold px-6 py-3 rounded-lg shadow-md transition">
-                        <i class="fas fa-users mr-2"></i> Unirse a la Red Alumni
-                    </button>
+            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <!-- Encabezado -->
+                <header class="mx-auto mb-12 max-w-2xl text-center">
+                    <h2 id="red-alumno-titulo" class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                        Red Alumno
+                    </h2>
+                    <p class="mt-4 text-sm text-slate-300 sm:text-base">
+                        La comunidad de graduados de la UNO: seguimiento laboral, diplomados de actualización
+                        y contactos profesionales en todo el país.
+                    </p>
+                </header>
+
+                <!-- 1. Cifras -->
+                <dl class="mb-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center transition duration-300 hover:-translate-y-1 hover:bg-white/10 flex flex-col items-center">
+                        <dt class="order-last mt-1 text-sm text-slate-300">Graduados egresados</dt>
+                        <dd class="text-4xl font-black text-uno-gold sm:text-5xl">
+                            <i class="fas fa-user-graduate mb-2 block text-xl text-uno-gold" aria-hidden="true"></i>
+                            <span data-contador="20000" data-prefijo="+">+20,000</span>
+                        </dd>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center transition duration-300 hover:-translate-y-1 hover:bg-white/10 flex flex-col items-center">
+                        <dt class="order-last mt-1 text-sm text-slate-300">Carreras profesionales</dt>
+                        <dd class="text-4xl font-black text-uno-gold sm:text-5xl">
+                            <i class="fas fa-book-open mb-2 block text-xl text-uno-gold" aria-hidden="true"></i>
+                            <span data-contador="8">8</span>
+                        </dd>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center transition duration-300 hover:-translate-y-1 hover:bg-white/10 flex flex-col items-center">
+                        <dt class="order-last mt-1 text-sm text-slate-300">Subsedes nacionales</dt>
+                        <dd class="text-4xl font-black text-uno-gold sm:text-5xl">
+                            <i class="fas fa-map-marker-alt mb-2 block text-xl text-uno-gold" aria-hidden="true"></i>
+                            <span data-contador="6">6</span>
+                        </dd>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center transition duration-300 hover:-translate-y-1 hover:bg-white/10 flex flex-col items-center">
+                        <dt class="order-last mt-1 text-sm text-slate-300">Años de trayectoria</dt>
+                        <dd class="text-4xl font-black text-uno-gold sm:text-5xl">
+                            <i class="fas fa-award mb-2 block text-xl text-uno-gold" aria-hidden="true"></i>
+                            <span data-contador="25" data-sufijo="+">25+</span>
+                        </dd>
+                    </div>
+                </dl>
+
+                <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
+
+                    <!-- 2. Beneficios -->
+                    <div>
+                        <h3 class="mb-6 text-xl font-bold">Lo que te ofrece la red</h3>
+                        <ul class="grid gap-4 sm:grid-cols-2">
+                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                                    <i class="fas fa-briefcase" aria-hidden="true"></i>
+                                </span>
+                                <h4 class="font-bold">Bolsa de trabajo</h4>
+                                <p class="mt-1 text-sm text-slate-300">Ofertas y prácticas de instituciones con convenio, primero para egresados.</p>
+                            </li>
+                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                                </span>
+                                <h4 class="font-bold">Diplomados</h4>
+                                <p class="mt-1 text-sm text-slate-300">Actualización en tu área con beneficios para miembros de la red.</p>
+                            </li>
+                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                                    <i class="fas fa-network-wired" aria-hidden="true"></i>
+                                </span>
+                                <h4 class="font-bold">Contactos profesionales</h4>
+                                <p class="mt-1 text-sm text-slate-300">Encuentros con egresados de las seis subsedes del país.</p>
+                            </li>
+                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                                    <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                                </span>
+                                <h4 class="font-bold">Mentorías</h4>
+                                <p class="mt-1 text-sm text-slate-300">Graduados con experiencia acompañan a quienes recién egresan.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Registro -->
+                    <div class="rounded-2xl border-t-4 border-uno-gold bg-white p-6 text-slate-800 shadow-2xl sm:p-8">
+                        <h3 class="text-xl font-extrabold text-uno-navy">Únete a la Red Alumno</h3>
+                        <p class="mt-1 text-sm text-slate-500">
+                            Completa tus datos y te escribiremos por WhatsApp para darte de alta.
+                        </p>
+
+                        <form id="red-alumno-form" class="mt-6 space-y-4" novalidate>
+                            <div>
+                                <label for="red-alumno-nombre" class="mb-1 block text-sm font-semibold text-slate-700">Nombre completo</label>
+                                <input id="red-alumno-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej.: María Fernández"
+                                       class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-uno-gold">
+                                <p class="mt-1 hidden text-xs text-red-600" data-error="nombre">Escribe tu nombre y apellido.</p>
+                            </div>
+
+                            <div class="grid gap-4 sm:grid-cols-2">
+                                <div>
+                                    <label for="red-alumno-carrera" class="mb-1 block text-sm font-semibold text-slate-700">Carrera</label>
+                                    <select id="red-alumno-carrera" name="carrera"
+                                            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-uno-gold">
+                                        <option value="">Elige tu carrera</option>
+                                        <option>Medicina</option>
+                                        <option>Odontología</option>
+                                        <option>Bioquímica y Farmacia</option>
+                                        <option>Enfermería</option>
+                                        <option>Fisioterapia y Kinesiología</option>
+                                        <option>Ingeniería de Sistemas</option>
+                                        <option>Derecho</option>
+                                        <option>Prótesis Dental</option>
+                                    </select>
+                                    <p class="mt-1 hidden text-xs text-red-600" data-error="carrera">Elige tu carrera.</p>
+                                </div>
+                                <div>
+                                    <label for="red-alumno-egreso" class="mb-1 block text-sm font-semibold text-slate-700">Año de egreso</label>
+                                    <input id="red-alumno-egreso" name="egreso" type="number" inputmode="numeric" min="1995" placeholder="Ej.: 2022"
+                                           class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-uno-gold">
+                                    <p class="mt-1 hidden text-xs text-red-600" data-error="egreso">Escribe un año desde 1995 hasta hoy.</p>
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                    class="flex w-full items-center justify-center rounded-lg bg-uno-gold px-6 py-3 font-bold text-uno-navy shadow-md transition hover:bg-yellow-500">
+                                <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i> Unirme por WhatsApp
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
+
+            <script>
+                // Red Alumno: contador de cifras y registro por WhatsApp.
+                (function () {
+                    const seccion = document.getElementById('alumni');
+                    const WHATSAPP = 'https://wa.me/59162241035';
+
+                    // Cifras: cuentan desde cero al entrar en pantalla (salvo con movimiento reducido).
+                    const contadores = seccion.querySelectorAll('[data-contador]');
+                    const movimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                    function animar(nodo) {
+                        const objetivo = Number(nodo.dataset.contador);
+                        const prefijo = nodo.dataset.prefijo || '';
+                        const sufijo = nodo.dataset.sufijo || '';
+                        const duracionMs = 1400;
+                        const final = nodo.textContent;
+                        let inicio = null;
+
+                        function cuadro(ahora) {
+                            inicio = inicio || ahora;
+                            const t = Math.min(1, (ahora - inicio) / duracionMs);
+                            const valor = Math.round(objetivo * (1 - Math.pow(1 - t, 4)));
+                            nodo.textContent = prefijo + valor.toLocaleString('en-US') + sufijo;
+                            if (t < 1) requestAnimationFrame(cuadro);
+                        }
+                        requestAnimationFrame(cuadro);
+                        // Si la pestaña queda en segundo plano, la cifra igual termina en su valor.
+                        setTimeout(function () { nodo.textContent = final; }, duracionMs + 200);
+                    }
+
+                    if (!movimientoReducido && 'IntersectionObserver' in window) {
+                        const observador = new IntersectionObserver(function (entradas) {
+                            if (entradas.some(function (entrada) { return entrada.isIntersecting; })) {
+                                contadores.forEach(animar);
+                                observador.disconnect();
+                            }
+                        }, { threshold: 0.3 });
+                        observador.observe(seccion);
+                    }
+
+                    // Registro: valida y abre WhatsApp con el mensaje armado.
+                    const form = document.getElementById('red-alumno-form');
+                    const anioActual = new Date().getFullYear();
+                    form.egreso.max = anioActual;
+
+                    function validar(campo, esValido) {
+                        form.querySelector('[data-error="' + campo + '"]').classList.toggle('hidden', esValido);
+                        form[campo].classList.toggle('border-red-500', !esValido);
+                        return esValido;
+                    }
+
+                    form.addEventListener('submit', function (evento) {
+                        evento.preventDefault();
+                        const nombre = form.nombre.value.trim();
+                        const egreso = Number(form.egreso.value);
+                        const resultados = [
+                            validar('nombre', nombre.split(/\s+/).length >= 2),
+                            validar('carrera', form.carrera.value !== ''),
+                            validar('egreso', Number.isInteger(egreso) && egreso >= 1995 && egreso <= anioActual),
+                        ];
+                        if (resultados.includes(false)) return;
+
+                        const mensaje = 'Hola, soy ' + nombre + ', egresado de ' + form.carrera.value +
+                            ' (' + egreso + '). Quiero unirme a la Red Alumno de la UNO.';
+                        window.open(WHATSAPP + '?text=' + encodeURIComponent(mensaje), '_blank', 'noopener');
+                    });
+                })();
+            </script>
         </section>
 
         <!-- Últimas Noticias -->
