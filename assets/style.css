@@ -1,0 +1,16 @@
+.gradient-hero {
+    background: linear-gradient(135deg, rgba(0,33,71,0.95) 0%, rgba(0,51,102,0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+}
+.card-hover {
+    transition: all 0.4s ease;
+}
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 51, 102, 0.15), 0 10px 10px -5px rgba(0, 51, 102, 0.04);
+}
+.img-zoom {
+    transition: transform 0.5s ease;
+}
+.card-hover:hover .img-zoom {
+    transform: scale(1.1);
+}

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidad Nacional del Oriente - UNO Sede Santa Cruz</title>
+
+    <!-- Estilos compartidos de la página (hero, tarjetas de noticias) -->
+    <link rel="stylesheet" href="assets/style.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -26,6 +29,15 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -57,16 +69,6 @@
         .medicine-source a { text-decoration: underline; color: #003366; }
         .medicine-dialog :focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
         @media (max-width: 640px) { .medicine-intro { grid-template-columns: 1fr; } .medicine-content { padding: 16px; } .medicine-header { padding: 16px; } .medicine-header h2 { font-size: 24px; } }
-        .gradient-hero {
-            background: linear-gradient(135deg, rgba(0,33,71,0.95) 0%, rgba(0,51,102,0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px -10px rgba(0, 51, 102, 0.3);
-        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased flex flex-col min-h-screen">
@@ -651,52 +653,136 @@
             <script src="alumni/red-alumno.js" defer></script>
         </section>
 
-        <!-- Últimas Noticias -->
-        <section id="noticias" class="py-16 bg-white">
+        <!-- SECCIÓN DE NOTICIAS -->
+        <section id="noticias" class="py-16 md:py-24 bg-slate-50 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
-    <div>
-        <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest">Acontecimientos UNO</h2>
-        <h3 class="text-3xl font-extrabold text-uno-navy">Últimas Noticias y Eventos Universitarios</h3>
-    </div>
-    <button onclick="alert('Cargando más noticias...')" class="bg-uno-blue hover:bg-uno-navy text-white text-sm font-bold py-2 px-4 rounded-lg shadow-md transition flex items-center">
-        Ver todas las noticias <i class="fas fa-arrow-right ml-2"></i>
-    </button>
-</div>
+                
+                <!-- Encabezado de Sección -->
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Boletín Informativo</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-uno-navy">Últimas Noticias y Eventos</h3>
+                    <p class="mt-3 text-slate-600 text-sm md:text-base">Mantente informado sobre los avances académicos, proyectos de investigación y convenios institucionales.</p>
+                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Filtros Interactivos -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10" id="news-filters">
+                    <button class="filter-btn active px-5 py-2 rounded-full text-sm font-bold bg-uno-blue text-white shadow-md transition transform hover:scale-105" data-filter="all">Todas</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="investigacion">Investigación</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="academico">Académico</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="interaccion">Interacción Social</button>
+                </div>
+
+                <!-- Grid de Noticias -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+                    
                     <!-- Noticia 1 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=400&auto=format&fit=crop" alt="Simposio" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Investigación</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Simposio Internacional de Salud y Biotecnología 2026</h4>
-                            <p class="text-slate-600 text-sm mb-4">Estudiantes de Medicina y Bioquímica participaron de exposiciones con docentes ponentes internacionales.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 18 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="investigacion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop" alt="Simposio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-uno-blue/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Investigación</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 24 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Simposio Internacional de Salud, Biotecnología y Robótica Avanzada</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Estudiantes de Medicina e Ingeniería participaron en demostraciones de cirugía robótica con ponentes de la Universidad de São Paulo.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Noticia 2 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400&auto=format&fit=crop" alt="Convenio" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Convenios</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Firma de Convenio para Prácticas Profesionales</h4>
-                            <p class="text-slate-600 text-sm mb-4">Nuevas alianzas estratégicas con centros hospitalarios y empresas del sector de ingeniería en Santa Cruz.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 10 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="academico">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop" alt="Convenio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Académico</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 18 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Firma de Convenio para Prácticas en Hospitales de Tercer Nivel</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Nuevas alianzas estratégicas garantizan que nuestros estudiantes de Ciencias de la Salud realicen internados en los mejores centros médicos.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Noticia 3 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="Feria" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Interacción Social</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Feria Universitaria de Innovación y Tecnología</h4>
-                            <p class="text-slate-600 text-sm mb-4">Presentación de proyectos multidisciplinarios desarrollados por estudiantes de Ingeniería de Sistemas.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 02 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="interaccion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Feria" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Interacción Social</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 10 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Feria de Innovación: Sistema de Preconvalidación UNO</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Estudiantes de la materia Gestión de Configuración de Software presentaron el nuevo sistema automatizado para admisiones.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
+
+                    <!-- Noticia 4 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="investigacion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop" alt="Laboratorio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-uno-blue/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Investigación</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 05 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Publicación en Revista Científica de Bioquímica Farmacéutica</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Docentes investigadores de la UNO logran importante publicación sobre extractos botánicos endémicos del oriente boliviano.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 5 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="academico">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Odontología" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Académico</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 28 de Septiembre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Inauguración de la Nueva Clínica Odontológica 2.0</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Nuevos sillones equipados con tecnología digital y rayos X de última generación están listos para la práctica estudiantil.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 6 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="interaccion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600&auto=format&fit=crop" alt="Campaña" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Interacción Social</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 15 de Septiembre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Campaña de Salud Preventiva en los Distritos de Santa Cruz</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Brigadas de Enfermería y Fisioterapia brindaron atención gratuita a más de 500 familias en zonas vulnerables.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -797,6 +883,8 @@
     </footer>
 
     <script src="assets/medicina.js"></script>
+    <!-- Filtros de noticias -->
+    <script src="assets/script.js"></script>
     <!-- Script Vanilla JS -->
     <script>
         // Datos de SubSedes
