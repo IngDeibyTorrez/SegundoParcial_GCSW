@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidad Nacional del Oriente - UNO Sede Santa Cruz</title>
+    <link rel="stylesheet" href="careers/careers.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -32,31 +33,6 @@
         }
     </script>
     <style>
-        .medicine-dialog { border: 0; padding: 0; width: min(1100px, calc(100% - 24px)); max-height: 90dvh; border-radius: 20px; color: #002147; background: #f8fafc; box-shadow: 0 24px 80px #00214755; }
-        .medicine-dialog::backdrop { background: #00152ac9; backdrop-filter: blur(5px); }
-        .medicine-header { position: sticky; top: 0; z-index: 1; background: #003366; color: white; padding: 24px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .medicine-header h2 { font-size: 30px; font-weight: 800; }
-        .medicine-header p { font-size: 12px; color: #f3e5ab; }
-        .medicine-close { border-radius: 50%; width: 44px; height: 44px; flex-shrink: 0; background: #ffffff20; font-size: 24px; }
-        .medicine-content { padding: 28px; }
-        .medicine-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; margin-bottom: 24px; }
-        .medicine-content h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-        .medicine-content p, .medicine-content li { font-size: 14px; line-height: 1.8; color: #475569; }
-        .medicine-video { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #002147; }
-        .medicine-resolution { display: inline-block; padding: 6px 12px; border-radius: 20px; background: #f3e5ab; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
-        .medicine-section { border: 1px solid #e2e8f0; border-radius: 12px; background: white; margin-bottom: 12px; overflow: hidden; }
-        .medicine-section summary { cursor: pointer; padding: 18px 20px; font-weight: 700; }
-        .medicine-section[open] summary { background: #eef3f8; border-bottom: 1px solid #e2e8f0; }
-        .medicine-section-content { padding: 20px; }
-        .medicine-section ul { padding-left: 22px; list-style: disc; }
-        .medicine-section li + li { margin-top: 8px; }
-        .medicine-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-        .medicine-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 8px; padding: 10px 18px; background: #003366; color: white; font-size: 14px; font-weight: 700; text-decoration: none; }
-        .medicine-action-whatsapp { background: #15803d; }
-        .medicine-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-        .medicine-source a { text-decoration: underline; color: #003366; }
-        .medicine-dialog :focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
-        @media (max-width: 640px) { .medicine-intro { grid-template-columns: 1fr; } .medicine-content { padding: 16px; } .medicine-header { padding: 16px; } .medicine-header h2 { font-size: 24px; } }
         .gradient-hero {
             background: linear-gradient(135deg, rgba(0,33,71,0.95) 0%, rgba(0,51,102,0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
         }
@@ -249,154 +225,7 @@
             </div>
         </section>
 
-        <!-- Oferta Académica / Carreras -->
-        <section id="carreras" class="py-16 md:py-24 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Formación de Nivel Superior</h2>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-uno-navy">Nuestra Oferta Académica</h3>
-                    <p class="mt-3 text-slate-600 text-base sm:text-lg">Carreras universitarias diseñadas con visión práctica, laboratorios equipados e infraestructura moderna en Santa Cruz.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Medicina -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=500&auto=format&fit=crop" alt="Medicina" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Medicina</h4>
-                                <p class="text-slate-600 text-sm mb-4">Formación integral médica con prácticas clínicas tempranas e internado en centros acreditados.</p>
-                            </div>
-                            <button onclick="showMedicineInfo()" aria-haspopup="dialog" aria-controls="medicine-dialog" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Odontología -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=500&auto=format&fit=crop" alt="Odontología" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Odontología</h4>
-                                <p class="text-slate-600 text-sm mb-4">Acceso a nuestra Clínica Odontológica propia con equipos de última generación.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Odontología', 'Licenciatura en Odontología', '5 Años', 'Ciencias de la Salud', 'Especialistas en salud bucodental, cirugía oral y rehabilitación estética.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Bioquímica y Farmacia -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=500&auto=format&fit=crop" alt="Bioquímica y Farmacia" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Bioquímica y Farmacia</h4>
-                                <p class="text-slate-600 text-sm mb-4">Investigación biomédica, análisis clínico y regencia farmacéutica aplicada.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Bioquímica y Farmacia', 'Licenciatura en Bioquímica y Farmacia', '5 Años', 'Ciencias de la Salud', 'Profesionales expertos en análisis clínicos, farmacología e investigación biológica.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Enfermería -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=500&auto=format&fit=crop" alt="Enfermería" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Enfermería</h4>
-                                <p class="text-slate-600 text-sm mb-4">Cuidado integral de la salud del paciente y gestión hospitalaria con calidad humana.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Enfermería', 'Licenciatura en Enfermería', '4 Años', 'Ciencias de la Salud', 'Líderes en cuidados de salud comunitaria y atención médica especializada.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Fisioterapia y Kinesiología -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=500&auto=format&fit=crop" alt="Fisioterapia y Kinesiología" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Fisioterapia y Kinesiología</h4>
-                                <p class="text-slate-600 text-sm mb-4">Rehabilitación física, kinesiología deportiva y terapia funcional avanzada.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Fisioterapia y Kinesiología', 'Licenciatura en Fisioterapia', '4 Años', 'Ciencias de la Salud', 'Especialistas en recuperación motora, rehabilitación deportiva e hidroterapia.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Ingeniería de Sistemas -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=500&auto=format&fit=crop" alt="Ingeniería de Sistemas" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-slate-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Tecnología</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Ingeniería de Sistemas</h4>
-                                <p class="text-slate-600 text-sm mb-4">Desarrollo de software, inteligencia artificial, redes e infraestructura cloud.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Ingeniería de Sistemas', 'Ingeniería de Sistemas', '5 Años', 'Tecnología e Ingeniería', 'Diseño e implementación de sistemas de software avanzados y arquitectura de redes.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Derecho -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=500&auto=format&fit=crop" alt="Derecho" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Sociales</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Derecho</h4>
-                                <p class="text-slate-600 text-sm mb-4">Ciencias jurídicas, litigación oral, derecho mercantil y derechos humanos.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Derecho', 'Licenciatura en Derecho', '5 Años', 'Ciencias Jurídicas', 'Abogados íntegros para el ejercicio público y privado con sólidas bases éticas.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Prótesis Dental -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=500&auto=format&fit=crop" alt="Prótesis Dental" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-emerald-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Técnico Sup.</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Prótesis Dental</h4>
-                                <p class="text-slate-600 text-sm mb-4">Especialidad en confección y diseño de dispositivos y prótesis bucofaciales.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Prótesis Dental', 'Técnico Superior en Prótesis Dental', '3 Años', 'Técnico Superior', 'Formación práctica en tecnología de rehabilitación oral y laboratorio dental.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div id="careers-root" aria-live="polite"><p class="text-center py-8 text-slate-600">Cargando carreras…</p></div>
 
         <!-- Red Universitaria / SubSedes Interactivas -->
         <section id="subsedes" class="py-16 bg-white border-t border-slate-200">
@@ -553,15 +382,6 @@
         </section>
     </main>
 
-    <!-- Información oficial de Medicina, sede Santa Cruz -->
-    <dialog id="medicine-dialog" class="medicine-dialog" aria-labelledby="medicine-title">
-        <div class="medicine-header">
-            <div><p>CIENCIAS DE LA SALUD · SEDE SANTA CRUZ</p><h2 id="medicine-title">Medicina</h2></div>
-            <button type="button" class="medicine-close" onclick="document.getElementById('medicine-dialog').close()" aria-label="Cerrar información de Medicina" autofocus>×</button>
-        </div>
-        <div id="medicine-content" class="medicine-content"></div>
-    </dialog>
-
     <!-- Modal Generico para Carrera / Info -->
     <div id="modal-info" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative animate-fadeIn">
@@ -647,7 +467,8 @@
         </div>
     </footer>
 
-    <script src="assets/medicina.js"></script>
+    <script src="careers/careers-data.js"></script>
+    <script src="careers/load-careers.js"></script>
     <!-- Script Vanilla JS -->
     <script>
         // Datos de SubSedes
@@ -763,32 +584,6 @@
                 contentExt.classList.remove('hidden');
                 contentNac.classList.add('hidden');
             }
-        }
-
-        // Modal de Información de Carrera
-        function showCareerInfo(titulo, grado, duracion, area, descripcion) {
-            const modal = document.getElementById('modal-info');
-            const body = document.getElementById('modal-body');
-            body.innerHTML = `
-                <div class="text-center mb-4">
-                    <span class="bg-uno-gold/20 text-uno-navy text-xs font-bold px-3 py-1 rounded-full uppercase">${area}</span>
-                    <h3 class="text-2xl font-extrabold text-uno-navy mt-2">${titulo}</h3>
-                    <p class="text-xs text-slate-500">${grado} • Duración: ${duracion}</p>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6 text-center">${descripcion}</p>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 text-xs text-slate-700 space-y-2">
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Modalidad: Presencial</p>
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Horarios: Mañana, Tarde y Noche</p>
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Título en Provisión Nacional</p>
-                </div>
-                <div class="flex gap-3">
-                    <button onclick="closeModal()" class="w-1/2 py-2.5 bg-slate-200 text-slate-700 font-bold rounded-lg text-sm hover:bg-slate-300 transition">Cerrar</button>
-                    <a href="https://wa.me/59162241035?text=Hola,%20deseo%20más%20información%20sobre%20la%20carrera%20de%20${encodeURIComponent(titulo)}" target="_blank" class="w-1/2 py-2.5 bg-uno-green text-white font-bold rounded-lg text-sm text-center hover:bg-emerald-600 transition flex items-center justify-center">
-                        <i class="fab fa-whatsapp mr-1"></i> Inscribirme
-                    </a>
-                </div>
-            `;
-            modal.classList.remove('hidden');
         }
 
         // Modal de Información Nosostros
