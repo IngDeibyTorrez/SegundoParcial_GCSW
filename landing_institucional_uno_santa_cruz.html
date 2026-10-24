@@ -32,6 +32,31 @@
         }
     </script>
     <style>
+        .medicine-dialog { border: 0; padding: 0; width: min(1100px, calc(100% - 24px)); max-height: 90dvh; border-radius: 20px; color: #002147; background: #f8fafc; box-shadow: 0 24px 80px #00214755; }
+        .medicine-dialog::backdrop { background: #00152ac9; backdrop-filter: blur(5px); }
+        .medicine-header { position: sticky; top: 0; z-index: 1; background: #003366; color: white; padding: 24px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .medicine-header h2 { font-size: 30px; font-weight: 800; }
+        .medicine-header p { font-size: 12px; color: #f3e5ab; }
+        .medicine-close { border-radius: 50%; width: 44px; height: 44px; flex-shrink: 0; background: #ffffff20; font-size: 24px; }
+        .medicine-content { padding: 28px; }
+        .medicine-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .medicine-content h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .medicine-content p, .medicine-content li { font-size: 14px; line-height: 1.8; color: #475569; }
+        .medicine-video { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #002147; }
+        .medicine-resolution { display: inline-block; padding: 6px 12px; border-radius: 20px; background: #f3e5ab; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+        .medicine-section { border: 1px solid #e2e8f0; border-radius: 12px; background: white; margin-bottom: 12px; overflow: hidden; }
+        .medicine-section summary { cursor: pointer; padding: 18px 20px; font-weight: 700; }
+        .medicine-section[open] summary { background: #eef3f8; border-bottom: 1px solid #e2e8f0; }
+        .medicine-section-content { padding: 20px; }
+        .medicine-section ul { padding-left: 22px; list-style: disc; }
+        .medicine-section li + li { margin-top: 8px; }
+        .medicine-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+        .medicine-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 8px; padding: 10px 18px; background: #003366; color: white; font-size: 14px; font-weight: 700; text-decoration: none; }
+        .medicine-action-whatsapp { background: #15803d; }
+        .medicine-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
+        .medicine-source a { text-decoration: underline; color: #003366; }
+        .medicine-dialog :focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
+        @media (max-width: 640px) { .medicine-intro { grid-template-columns: 1fr; } .medicine-content { padding: 16px; } .medicine-header { padding: 16px; } .medicine-header h2 { font-size: 24px; } }
         .gradient-hero {
             background: linear-gradient(135deg, rgba(0,33,71,0.95) 0%, rgba(0,51,102,0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
         }
@@ -245,7 +270,7 @@
                                 <h4 class="text-xl font-bold text-uno-navy mb-2">Medicina</h4>
                                 <p class="text-slate-600 text-sm mb-4">Formación integral médica con prácticas clínicas tempranas e internado en centros acreditados.</p>
                             </div>
-                            <button onclick="showCareerInfo('Medicina', 'Licenciatura en Medicina', '5 Años + 1 Año Internado', 'Ciencias de la Salud', 'Formar médicos generales de alta calidad científica, humana y social.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
+                            <button onclick="showMedicineInfo()" aria-haspopup="dialog" aria-controls="medicine-dialog" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
                                 Ver Plan de Estudios
                             </button>
                         </div>
@@ -525,6 +550,15 @@
         </section>
     </main>
 
+    <!-- Información oficial de Medicina, sede Santa Cruz -->
+    <dialog id="medicine-dialog" class="medicine-dialog" aria-labelledby="medicine-title">
+        <div class="medicine-header">
+            <div><p>CIENCIAS DE LA SALUD · SEDE SANTA CRUZ</p><h2 id="medicine-title">Medicina</h2></div>
+            <button type="button" class="medicine-close" onclick="document.getElementById('medicine-dialog').close()" aria-label="Cerrar información de Medicina" autofocus>×</button>
+        </div>
+        <div id="medicine-content" class="medicine-content"></div>
+    </dialog>
+
     <!-- Modal Generico para Carrera / Info -->
     <div id="modal-info" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative animate-fadeIn">
@@ -610,6 +644,7 @@
         </div>
     </footer>
 
+    <script src="assets/medicina.js"></script>
     <!-- Script Vanilla JS -->
     <script>
         // Datos de SubSedes
