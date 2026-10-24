@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Red Alumno · Comunidad de graduados UNO
+   Estilos propios de la sección #alumni. El diseño general (grillas,
+   márgenes, tipografía) sigue usando las utilidades de Tailwind del sitio;
+   aquí van los componentes que la sección repite.
+   ========================================================================== */
+
+.red-alumno {
+    --ra-navy: #002147;
+    --ra-blue: #003366;
+    --ra-gold: #D4AF37;
+    --ra-borde: rgba(255, 255, 255, 0.1);
+    --ra-tarjeta: rgba(255, 255, 255, 0.05);
+    --ra-tarjeta-activa: rgba(255, 255, 255, 0.1);
+    --ra-texto-suave: #cbd5e1;
+    --ra-transicion: 300ms ease;
+}
+
+/* --- Fondo decorativo ---------------------------------------------------- */
+
+.red-alumno__brillo {
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 9999px;
+    filter: blur(64px);
+    pointer-events: none;
+}
+
+.red-alumno__brillo--arriba {
+    top: -8rem;
+    right: -8rem;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.red-alumno__brillo--abajo {
+    bottom: -10rem;
+    left: -8rem;
+    background: rgba(0, 51, 102, 0.5);
+}
+
+/* --- 1. Cifras ----------------------------------------------------------- */
+
+.red-alumno__cifra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border: 1px solid var(--ra-borde);
+    border-radius: 1rem;
+    background: var(--ra-tarjeta);
+    transition: transform var(--ra-transicion), background-color var(--ra-transicion);
+}
+
+.red-alumno__cifra:hover {
+    transform: translateY(-4px);
+    background: var(--ra-tarjeta-activa);
+}
+
+.red-alumno__valor {
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ra-gold);
+}
+
+.red-alumno__valor i {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* La etiqueta va primero en el HTML (dt antes que dd) y se ve debajo. */
+.red-alumno__etiqueta {
+    order: 1;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--ra-texto-suave);
+}
+
+@media (min-width: 640px) {
+    .red-alumno__valor {
+        font-size: 3rem;
+    }
+}
+
+/* --- 2. Así funciona ----------------------------------------------------- */
+
+.red-alumno__pasos-linea {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    /* Línea que une los tres pasos, solo en pantallas anchas. */
+    .red-alumno__pasos-linea {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        left: 16.6%;
+        right: 16.6%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.6), transparent);
+    }
+}
+
+.red-alumno__paso-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    border: 2px solid var(--ra-gold);
+    border-radius: 9999px;
+    background: var(--ra-navy);
+    color: var(--ra-gold);
+    font-size: 1.125rem;
+    font-weight: 900;
+    /* Tapa la línea detrás del número. */
+    position: relative;
+}
+
+/* --- 3. Beneficios ------------------------------------------------------- */
+
+.red-alumno__beneficio {
+    padding: 1.25rem;
+    border: 1px solid var(--ra-borde);
+    border-radius: 0.75rem;
+    background: var(--ra-tarjeta);
+    transition: transform var(--ra-transicion), border-color var(--ra-transicion),
+        background-color var(--ra-transicion);
+}
+
+.red-alumno__beneficio:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.6);
+    background: var(--ra-tarjeta-activa);
+}
+
+.red-alumno__beneficio-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--ra-gold);
+    transition: background-color var(--ra-transicion), color var(--ra-transicion);
+}
+
+.red-alumno__beneficio:hover .red-alumno__beneficio-icono {
+    background: var(--ra-gold);
+    color: var(--ra-navy);
+}
+
+/* --- 4. Registro --------------------------------------------------------- */
+
+.red-alumno__campo {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    background: #fff;
+    font-size: 0.875rem;
+    transition: border-color var(--ra-transicion), box-shadow var(--ra-transicion);
+}
+
+.red-alumno__campo:focus {
+    outline: none;
+    border-color: var(--ra-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35);
+}
+
+.red-alumno__campo--error {
+    border-color: #ef4444;
+}
+
+.red-alumno__error {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #dc2626;
+}
+
+/* --- Movimiento reducido ------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .red-alumno__cifra,
+    .red-alumno__beneficio,
+    .red-alumno__beneficio-icono,
+    .red-alumno__campo {
+        transition: none;
+    }
+
+    .red-alumno__cifra:hover,
+    .red-alumno__beneficio:hover {
+        transform: none;
+    }
+}
