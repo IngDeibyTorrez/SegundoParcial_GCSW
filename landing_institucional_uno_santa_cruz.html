@@ -473,8 +473,9 @@
         <!-- ============================================================
              RED ALUMNO · Comunidad de graduados UNO
              1. Cifras institucionales (cuentan al aparecer en pantalla)
-             2. Beneficios para egresados
-             3. Registro: arma un mensaje de WhatsApp con los datos
+             2. Así funciona: tres pasos para unirse
+             3. Beneficios para egresados
+             4. Registro: arma un mensaje de WhatsApp con los datos
              ============================================================ -->
         <section id="alumni" aria-labelledby="red-alumno-titulo" class="relative overflow-hidden bg-uno-navy py-16 text-white md:py-24">
             <!-- Fondo decorativo -->
@@ -526,35 +527,56 @@
                     </div>
                 </dl>
 
+                <!-- 2. Así funciona -->
+                <ol class="relative mb-16 grid gap-8 md:grid-cols-3">
+                    <!-- Línea que une los pasos (solo en pantallas anchas) -->
+                    <span aria-hidden="true" class="absolute left-[16.6%] right-[16.6%] top-6 hidden h-px bg-gradient-to-r from-uno-gold/0 via-uno-gold/60 to-uno-gold/0 md:block"></span>
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-uno-gold bg-uno-navy text-lg font-black text-uno-gold">1</span>
+                        <h3 class="mt-4 font-bold">Regístrate</h3>
+                        <p class="mx-auto mt-1 max-w-xs text-sm text-slate-300">Déjanos tu nombre, tu carrera y tu año de egreso.</p>
+                    </li>
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-uno-gold bg-uno-navy text-lg font-black text-uno-gold">2</span>
+                        <h3 class="mt-4 font-bold">Te contactamos</h3>
+                        <p class="mx-auto mt-1 max-w-xs text-sm text-slate-300">La oficina de egresados confirma tus datos por WhatsApp.</p>
+                    </li>
+                    <li class="relative text-center">
+                        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-uno-gold bg-uno-navy text-lg font-black text-uno-gold">3</span>
+                        <h3 class="mt-4 font-bold">Accede a los beneficios</h3>
+                        <p class="mx-auto mt-1 max-w-xs text-sm text-slate-300">Ofertas laborales, diplomados y encuentros de la red.</p>
+                    </li>
+                </ol>
+
                 <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
 
-                    <!-- 2. Beneficios -->
+                    <!-- 3. Beneficios -->
                     <div>
                         <h3 class="mb-6 text-xl font-bold">Lo que te ofrece la red</h3>
                         <ul class="grid gap-4 sm:grid-cols-2">
-                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
-                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                            <li class="group rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-uno-gold/60 hover:bg-white/10">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold transition duration-300 group-hover:bg-uno-gold group-hover:text-uno-navy">
                                     <i class="fas fa-briefcase" aria-hidden="true"></i>
                                 </span>
                                 <h4 class="font-bold">Bolsa de trabajo</h4>
                                 <p class="mt-1 text-sm text-slate-300">Ofertas y prácticas de instituciones con convenio, primero para egresados.</p>
                             </li>
-                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
-                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                            <li class="group rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-uno-gold/60 hover:bg-white/10">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold transition duration-300 group-hover:bg-uno-gold group-hover:text-uno-navy">
                                     <i class="fas fa-certificate" aria-hidden="true"></i>
                                 </span>
                                 <h4 class="font-bold">Diplomados</h4>
                                 <p class="mt-1 text-sm text-slate-300">Actualización en tu área con beneficios para miembros de la red.</p>
                             </li>
-                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
-                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                            <li class="group rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-uno-gold/60 hover:bg-white/10">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold transition duration-300 group-hover:bg-uno-gold group-hover:text-uno-navy">
                                     <i class="fas fa-network-wired" aria-hidden="true"></i>
                                 </span>
                                 <h4 class="font-bold">Contactos profesionales</h4>
                                 <p class="mt-1 text-sm text-slate-300">Encuentros con egresados de las seis subsedes del país.</p>
                             </li>
-                            <li class="rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-uno-gold/60">
-                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold">
+                            <li class="group rounded-xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-uno-gold/60 hover:bg-white/10">
+                                <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-uno-gold/15 text-uno-gold transition duration-300 group-hover:bg-uno-gold group-hover:text-uno-navy">
                                     <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                                 </span>
                                 <h4 class="font-bold">Mentorías</h4>
@@ -563,7 +585,7 @@
                         </ul>
                     </div>
 
-                    <!-- 3. Registro -->
+                    <!-- 4. Registro -->
                     <div class="rounded-2xl border-t-4 border-uno-gold bg-white p-6 text-slate-800 shadow-2xl sm:p-8">
                         <h3 class="text-xl font-extrabold text-uno-navy">Únete a la Red Alumno</h3>
                         <p class="mt-1 text-sm text-slate-500">
@@ -575,7 +597,7 @@
                                 <label for="red-alumno-nombre" class="mb-1 block text-sm font-semibold text-slate-700">Nombre completo</label>
                                 <input id="red-alumno-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej.: María Fernández"
                                        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-uno-gold">
-                                <p class="mt-1 hidden text-xs text-red-600" data-error="nombre">Escribe tu nombre y apellido.</p>
+                                <p class="mt-1 hidden text-xs text-red-600" role="alert" data-error="nombre">Escribe tu nombre y apellido.</p>
                             </div>
 
                             <div class="grid gap-4 sm:grid-cols-2">
@@ -593,13 +615,13 @@
                                         <option>Derecho</option>
                                         <option>Prótesis Dental</option>
                                     </select>
-                                    <p class="mt-1 hidden text-xs text-red-600" data-error="carrera">Elige tu carrera.</p>
+                                    <p class="mt-1 hidden text-xs text-red-600" role="alert" data-error="carrera">Elige tu carrera.</p>
                                 </div>
                                 <div>
                                     <label for="red-alumno-egreso" class="mb-1 block text-sm font-semibold text-slate-700">Año de egreso</label>
                                     <input id="red-alumno-egreso" name="egreso" type="number" inputmode="numeric" min="1995" placeholder="Ej.: 2022"
                                            class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-uno-gold">
-                                    <p class="mt-1 hidden text-xs text-red-600" data-error="egreso">Escribe un año desde 1995 hasta hoy.</p>
+                                    <p class="mt-1 hidden text-xs text-red-600" role="alert" data-error="egreso">Escribe un año desde 1995 hasta hoy.</p>
                                 </div>
                             </div>
 
@@ -608,6 +630,19 @@
                                 <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i> Unirme por WhatsApp
                             </button>
                         </form>
+
+                        <!-- Confirmación (se muestra al enviar) -->
+                        <div id="red-alumno-listo" class="hidden py-6 text-center" role="status">
+                            <span class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl text-emerald-600">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </span>
+                            <h4 class="text-xl font-extrabold text-uno-navy">¡Ya casi eres parte de la red!</h4>
+                            <p id="red-alumno-listo-texto" class="mt-2 text-sm text-slate-500"></p>
+                            <a id="red-alumno-whatsapp" href="#" target="_blank" rel="noopener"
+                               class="mt-5 inline-flex items-center rounded-lg bg-uno-green px-5 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-600">
+                                <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i> Abrir WhatsApp de nuevo
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -672,11 +707,25 @@
                             validar('carrera', form.carrera.value !== ''),
                             validar('egreso', Number.isInteger(egreso) && egreso >= 1995 && egreso <= anioActual),
                         ];
-                        if (resultados.includes(false)) return;
+                        if (resultados.includes(false)) {
+                            // Lleva el cursor al primer dato que falta.
+                            const campos = ['nombre', 'carrera', 'egreso'];
+                            form[campos[resultados.indexOf(false)]].focus();
+                            return;
+                        }
 
                         const mensaje = 'Hola, soy ' + nombre + ', egresado de ' + form.carrera.value +
                             ' (' + egreso + '). Quiero unirme a la Red Alumno de la UNO.';
-                        window.open(WHATSAPP + '?text=' + encodeURIComponent(mensaje), '_blank', 'noopener');
+                        const enlace = WHATSAPP + '?text=' + encodeURIComponent(mensaje);
+                        window.open(enlace, '_blank', 'noopener');
+
+                        // Confirmación, por si el navegador bloqueó la ventana nueva.
+                        document.getElementById('red-alumno-listo-texto').textContent =
+                            nombre.split(/\s+/)[0] + ', te abrimos WhatsApp con tu mensaje listo. ' +
+                            'Envíalo y la oficina de egresados te dará de alta.';
+                        document.getElementById('red-alumno-whatsapp').href = enlace;
+                        form.classList.add('hidden');
+                        document.getElementById('red-alumno-listo').classList.remove('hidden');
                     });
                 })();
             </script>
