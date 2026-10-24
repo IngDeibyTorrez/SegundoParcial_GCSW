@@ -404,17 +404,27 @@
                 <div class="text-center max-w-2xl mx-auto mb-10">
                     <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Red Universitaria</h2>
                     <h3 class="text-3xl font-extrabold text-uno-navy">SubSedes y Centros de Extensión</h3>
-                    <p class="mt-2 text-slate-600">Explora nuestras subsedes y centros de extensión distribuidos estratégicamente.</p>
+                    <p class="mt-2 text-slate-600">Explora nuestras subsedes y centros de extensión distribuidos estratégicamente en todo el país.</p>
+                    <div class="mt-4 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 text-xs text-slate-700 shadow-sm">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <i class="fas fa-headset text-uno-blue"></i>
+                        <span>Atención y asesoría institucional personalizada: <strong class="text-uno-navy font-bold">César</strong></span>
+                    </div>
                 </div>
 
                 <!-- Tabs de Sedes -->
                 <div class="flex flex-wrap justify-center gap-2 mb-8" id="sedes-tabs">
-                    <button onclick="switchSede('santacruz')" id="tab-santacruz" class="sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-blue text-white shadow-md transition">Santa Cruz de la Sierra</button>
-                    <button onclick="switchSede('montero')" id="tab-montero" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Montero</button>
-                    <button onclick="switchSede('cochabamba')" id="tab-cochabamba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Cochabamba</button>
-                    <button onclick="switchSede('shinahota')" id="tab-shinahota" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Shinahota y otra</button>
-                    <button onclick="switchSede('tarija')" id="tab-tarija" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tarija</button>
-                    <button onclick="switchSede('yacuiba')" id="tab-yacuiba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Yacuiba</button>
+                    <button onclick="switchSede('santacruz')" id="tab-santacruz" class="sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-navy text-white shadow-md transition inline-flex items-center gap-2">
+                        <i class="fas fa-star text-uno-gold text-xs"></i> Santa Cruz de la Sierra
+                    </button>
+                    <button onclick="switchSede('montero')" id="tab-montero" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2">Montero</button>
+                    <button onclick="switchSede('cochabamba')" id="tab-cochabamba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2">Cochabamba</button>
+                    <button onclick="switchSede('shinahota')" id="tab-shinahota" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2">Shinahota</button>
+                    <button onclick="switchSede('tarija')" id="tab-tarija" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2">Tarija</button>
+                    <button onclick="switchSede('yacuiba')" id="tab-yacuiba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2">Yacuiba</button>
                 </div>
 
                 <!-- Panel de Detalle Sede -->
@@ -664,7 +674,7 @@
                 direccion: "Av. Principal del Norte, Montero - Santa Cruz",
                 telefono: "3 922-4000",
                 detalles: "Infraestructura académica completa para la formación en salud y área comercial para el norte integrado.",
-                imagen: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop"
+                imagen: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=600&auto=format&fit=crop"
             },
             cochabamba: {
                 nombre: "SubSede Cochabamba",
@@ -717,29 +727,58 @@
             
             // Actualizar estilo botones
             document.querySelectorAll('.sede-btn').forEach(btn => {
-                btn.className = 'sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+                btn.className = 'sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-2';
             });
-            document.getElementById(`tab-${key}`).className = 'sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-blue text-white shadow-md transition';
+            const activeBtn = document.getElementById(`tab-${key}`);
+            if (activeBtn) {
+                activeBtn.className = 'sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-navy text-white shadow-lg transition inline-flex items-center gap-2 ring-2 ring-uno-gold/50';
+            }
 
             // Renderizar contenido
             detailContainer.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
-                        <span class="text-xs font-bold text-uno-gold uppercase tracking-wider">SubSede Seleccionada</span>
-                        <h4 class="text-2xl font-bold text-uno-navy mb-3">${data.nombre}</h4>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">${data.detalles}</p>
-                        <div class="space-y-2 text-sm text-slate-700">
-                            <p class="flex items-center"><i class="fas fa-map-pin text-uno-blue mr-2"></i> <strong>Dirección:</strong> ${data.direccion}</p>
-                            <p class="flex items-center"><i class="fas fa-phone-alt text-uno-blue mr-2"></i> <strong>Teléfono Contacto:</strong> ${data.telefono}</p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 border border-amber-200/80 mb-2">
+                            <i class="fas fa-map-marker-alt text-uno-gold text-xs"></i>
+                            <span class="text-xs font-bold text-uno-navy uppercase tracking-wider">SubSede Seleccionada</span>
                         </div>
-                        <div class="mt-6">
-                            <a href="https://wa.me/59162241035?text=Hola,%20quisiera%20información%20sobre%20la%20sede%20${encodeURIComponent(data.nombre)}" target="_blank" class="inline-flex items-center bg-uno-blue hover:bg-uno-navy text-white text-xs font-bold px-4 py-2.5 rounded-lg transition">
-                                Consultar en esta Sede <i class="fas fa-arrow-right ml-2"></i>
+                        <h4 class="text-2xl sm:text-3xl font-extrabold text-uno-navy mb-3 tracking-tight">${data.nombre}</h4>
+                        <p class="text-slate-600 text-sm mb-5 leading-relaxed">${data.detalles}</p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-uno-blue flex items-center justify-center shrink-0 mr-3 mt-0.5">
+                                    <i class="fas fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 block uppercase">Dirección</span>
+                                    <span class="text-sm font-semibold text-slate-700">${data.direccion}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-uno-blue flex items-center justify-center shrink-0 mr-3 mt-0.5">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 block uppercase">Teléfono de Contacto</span>
+                                    <span class="text-sm font-semibold text-slate-700">${data.telefono}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3">
+                            <a href="https://wa.me/59162241035?text=Hola,%20quisiera%20información%20sobre%20la%20sede%20${encodeURIComponent(data.nombre)}" target="_blank" class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                                <i class="fab fa-whatsapp text-base mr-2"></i> Consultar por WhatsApp <i class="fas fa-arrow-right ml-2 text-xs"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="h-56 md:h-64 rounded-xl overflow-hidden shadow-md">
-                        <img src="${data.imagen}" alt="${data.nombre}" class="w-full h-full object-cover">
+
+                    <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg border border-slate-200 group bg-slate-100">
+                        <img src="${data.imagen}" alt="${data.nombre}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-uno-navy/60 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute top-3 right-3 bg-uno-navy/90 text-white backdrop-blur text-xs px-3 py-1 rounded-full font-semibold border border-uno-gold/40 flex items-center gap-1.5 shadow pointer-events-none">
+                            <i class="fas fa-university text-uno-gold"></i> Campus Oficial UNO
+                        </div>
                     </div>
                 </div>
             `;
