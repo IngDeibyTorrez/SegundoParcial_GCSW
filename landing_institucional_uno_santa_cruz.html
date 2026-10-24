@@ -4,70 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidad Nacional del Oriente - UNO Sede Santa Cruz</title>
-    <!-- Tailwind CSS -->
+    
+    <!-- 1. AQUÍ ESTÁ EL ENLACE A TU NUEVO ARCHIVO CSS EXTERNO -->
+    <link rel="stylesheet" href="assets/style.css">
+    
+    <!-- Tailwind CSS y Fuentes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Configuración de Tailwind (Se mantiene en el HTML porque es configuración de librería) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         uno: {
-                            blue: '#003366',       // Azul institucional
-                            navy: '#002147',       // Azul marino oscuro
-                            gold: '#D4AF37',       // Dorado institucional
-                            goldLight: '#F3E5AB',  // Dorado claro
-                            green: '#25D366',      // Verde WhatsApp
-                            lightBg: '#F8FAFC'     // Gris claro de fondo
+                            blue: '#003366',       
+                            navy: '#002147',       
+                            gold: '#D4AF37',       
+                            green: '#25D366',      
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <style>
-        .medicine-dialog { border: 0; padding: 0; width: min(1100px, calc(100% - 24px)); max-height: 90dvh; border-radius: 20px; color: #002147; background: #f8fafc; box-shadow: 0 24px 80px #00214755; }
-        .medicine-dialog::backdrop { background: #00152ac9; backdrop-filter: blur(5px); }
-        .medicine-header { position: sticky; top: 0; z-index: 1; background: #003366; color: white; padding: 24px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .medicine-header h2 { font-size: 30px; font-weight: 800; }
-        .medicine-header p { font-size: 12px; color: #f3e5ab; }
-        .medicine-close { border-radius: 50%; width: 44px; height: 44px; flex-shrink: 0; background: #ffffff20; font-size: 24px; }
-        .medicine-content { padding: 28px; }
-        .medicine-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; margin-bottom: 24px; }
-        .medicine-content h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
-        .medicine-content p, .medicine-content li { font-size: 14px; line-height: 1.8; color: #475569; }
-        .medicine-video { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #002147; }
-        .medicine-resolution { display: inline-block; padding: 6px 12px; border-radius: 20px; background: #f3e5ab; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
-        .medicine-section { border: 1px solid #e2e8f0; border-radius: 12px; background: white; margin-bottom: 12px; overflow: hidden; }
-        .medicine-section summary { cursor: pointer; padding: 18px 20px; font-weight: 700; }
-        .medicine-section[open] summary { background: #eef3f8; border-bottom: 1px solid #e2e8f0; }
-        .medicine-section-content { padding: 20px; }
-        .medicine-section ul { padding-left: 22px; list-style: disc; }
-        .medicine-section li + li { margin-top: 8px; }
-        .medicine-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-        .medicine-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 8px; padding: 10px 18px; background: #003366; color: white; font-size: 14px; font-weight: 700; text-decoration: none; }
-        .medicine-action-whatsapp { background: #15803d; }
-        .medicine-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-        .medicine-source a { text-decoration: underline; color: #003366; }
-        .medicine-dialog :focus-visible { outline: 3px solid #d4af37; outline-offset: 3px; }
-        @media (max-width: 640px) { .medicine-intro { grid-template-columns: 1fr; } .medicine-content { padding: 16px; } .medicine-header { padding: 16px; } .medicine-header h2 { font-size: 24px; } }
-        .gradient-hero {
-            background: linear-gradient(135deg, rgba(0,33,71,0.95) 0%, rgba(0,51,102,0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px -10px rgba(0, 51, 102, 0.3);
-        }
-    </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased flex flex-col min-h-screen">
 
@@ -82,12 +56,6 @@
             <div class="flex items-center space-x-3 text-xs">
                 <span class="bg-uno-gold text-uno-navy font-bold px-2 py-0.5 rounded">Gestión II - 2026</span>
                 <span>Inscripciones Abiertas</span>
-                <div class="flex space-x-2 text-slate-300 ml-2">
-                    <a href="#" class="hover:text-uno-gold transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-uno-gold transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-uno-gold transition"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="hover:text-uno-gold transition"><i class="fab fa-youtube"></i></a>
-                </div>
             </div>
         </div>
     </div>
@@ -98,730 +66,178 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-12 h-12 bg-uno-blue rounded-lg flex items-center justify-center text-white font-black text-2xl border-2 border-uno-gold shadow-sm group-hover:bg-uno-navy transition">
-                        UNO
-                    </div>
+                    <div class="w-12 h-12 bg-uno-blue rounded-lg flex items-center justify-center text-white font-black text-2xl border-2 border-uno-gold shadow-sm group-hover:bg-uno-navy transition">UNO</div>
                     <div class="flex flex-col">
-                        <span class="font-extrabold text-lg sm:text-xl text-uno-blue tracking-tight leading-none group-hover:text-uno-navy transition">
-                            UNIVERSIDAD NACIONAL
-                        </span>
-                        <span class="text-xs sm:text-sm font-semibold text-uno-gold tracking-widest leading-tight">
-                            DEL ORIENTE • SEDE SANTA CRUZ
-                        </span>
+                        <span class="font-extrabold text-lg sm:text-xl text-uno-blue tracking-tight leading-none group-hover:text-uno-navy transition">UNIVERSIDAD NACIONAL</span>
+                        <span class="text-xs sm:text-sm font-semibold text-uno-gold tracking-widest leading-tight">DEL ORIENTE • SEDE SANTA CRUZ</span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Menu -->
                 <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-sm font-medium text-slate-700">
-                    <a href="#inicio" class="px-3 py-2 text-uno-blue font-bold border-b-2 border-uno-gold">Inicio</a>
-                    
-                    <!-- Dropdown "Más" / Nosotros -->
-                    <div class="relative group py-2">
-                        <button class="px-3 py-2 hover:text-uno-blue flex items-center transition">
-                            Más <i class="fas fa-chevron-down text-xs ml-1 opacity-70 group-hover:rotate-180 transition-transform"></i>
-                        </button>
-                        <div class="absolute left-0 top-full hidden group-hover:block w-56 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50 animate-fadeIn">
-                            <a href="#nosotros" onclick="showAboutModal('Bienvenida', 'Bienvenidos a la Universidad Nacional del Oriente, una institución comprometida con la excelencia académica y la formación integral de profesionales líderes.')" class="block px-4 py-2 hover:bg-slate-50 hover:text-uno-blue">Bienvenida</a>
-                            <a href="#nosotros" onclick="showAboutModal('Historia', 'Fundada con la misión de expandir la educación superior de calidad en Santa Cruz y Bolivia, UNO ha crecido de manera constante implementando tecnología y laboratorios de vanguardia.')" class="block px-4 py-2 hover:bg-slate-50 hover:text-uno-blue">Historia</a>
-                            <a href="#nosotros" onclick="showAboutModal('Filosofía', 'Nuestra filosofía se basa en el humanismo, la ética médica y social, la innovación científica y el compromiso comunitario.')" class="block px-4 py-2 hover:bg-slate-50 hover:text-uno-blue">Filosofía</a>
-                            <a href="#nosotros" onclick="showAboutModal('Misión y Visión', 'Misión: Formar profesionales íntegros y competentes.<br>Visión: Ser referente nacional e internacional en salud e ingeniería.')" class="block px-4 py-2 hover:bg-slate-50 hover:text-uno-blue">Misión y Visión</a>
-                            <a href="#nosotros" onclick="showAboutModal('Autoridades', 'Rectorado y Consejo Universitario comprometidos con el desarrollo académico continuo e investigación.')" class="block px-4 py-2 hover:bg-slate-50 hover:text-uno-blue">Autoridades</a>
-                        </div>
-                    </div>
-
+                    <a href="#inicio" class="px-3 py-2 hover:text-uno-blue transition">Inicio</a>
                     <a href="#carreras" class="px-3 py-2 hover:text-uno-blue transition">Carreras</a>
-                    <a href="#subsedes" class="px-3 py-2 hover:text-uno-blue transition">SubSedes</a>
                     <a href="#requisitos" class="px-3 py-2 hover:text-uno-blue transition">Requisitos</a>
-                    <a href="#alumni" class="px-3 py-2 hover:text-uno-blue transition">Red Alumni</a>
-                    <a href="#noticias" class="px-3 py-2 hover:text-uno-blue transition">Noticias</a>
+                    <a href="#noticias" class="px-3 py-2 text-uno-blue font-bold border-b-2 border-uno-gold">Noticias</a>
                     <a href="#contacto" class="px-3 py-2 hover:text-uno-blue transition">Contacto</a>
                 </nav>
-
-                <!-- Action Button Desktop -->
-                <div class="hidden lg:flex items-center space-x-3">
-                    <a href="https://wa.me/59162241035?text=Hola,%20quisiera%20información%20sobre%20las%20inscripciones" target="_blank" class="bg-uno-green hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-full flex items-center shadow-md hover:shadow-lg transition">
-                        <i class="fab fa-whatsapp text-lg mr-2"></i> WhatsApp
-                    </a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-uno-blue p-2 rounded-md focus:outline-none" aria-label="Abrir Menú">
-                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-lg">
-            <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-semibold text-uno-blue bg-slate-50">Inicio</a>
-            
-            <details class="group">
-                <summary class="flex justify-between items-center px-3 py-2 text-base font-medium text-slate-700 cursor-pointer rounded-md hover:bg-slate-50">
-                    <span>Más Información</span>
-                    <i class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="pl-4 pr-2 py-1 space-y-1 text-sm text-slate-600 border-l-2 border-uno-gold ml-3 mt-1">
-                    <a href="#nosotros" onclick="showAboutModal('Bienvenida', 'Bienvenidos a la Universidad Nacional del Oriente.')" class="block py-1.5 hover:text-uno-blue">Bienvenida</a>
-                    <a href="#nosotros" onclick="showAboutModal('Historia', 'Reseña Histórica de UNO Bolivia.')" class="block py-1.5 hover:text-uno-blue">Historia</a>
-                    <a href="#nosotros" onclick="showAboutModal('Filosofía', 'Nuestra Filosofía Institucional.')" class="block py-1.5 hover:text-uno-blue">Filosofía</a>
-                    <a href="#nosotros" onclick="showAboutModal('Misión y Visión', 'Misión y Visión de la UNO.')" class="block py-1.5 hover:text-uno-blue">Misión y Visión</a>
-                    <a href="#nosotros" onclick="showAboutModal('Autoridades', 'Autoridades Institucionales.')" class="block py-1.5 hover:text-uno-blue">Autoridades</a>
-                </div>
-            </details>
-
-            <a href="#carreras" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Carreras</a>
-            <a href="#subsedes" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">SubSedes</a>
-            <a href="#requisitos" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Requisitos</a>
-            <a href="#alumni" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Red Alumni</a>
-            <a href="#noticias" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Noticias</a>
-            <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-uno-blue">Contacto</a>
-
-            <div class="pt-2">
-                <a href="https://wa.me/59162241035?text=Hola,%20quisiera%20información" target="_blank" class="w-full bg-uno-green text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center shadow">
-                    <i class="fab fa-whatsapp text-xl mr-2"></i> Contactar por WhatsApp
-                </a>
             </div>
         </div>
     </header>
 
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section id="inicio" class="gradient-hero text-white relative py-20 lg:py-32 px-4 overflow-hidden">
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="max-w-3xl space-y-6">
-                    <span class="inline-block bg-uno-gold text-uno-navy font-bold text-xs md:text-sm px-3.5 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
-                        <i class="fas fa-graduation-cap mr-1.5"></i> Gestión II - 2026
-                    </span>
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                        Bienvenidos a la <br class="hidden sm:inline"><span class="text-uno-gold">Universidad UNO</span>
-                    </h1>
-                    <p class="text-base sm:text-xl text-slate-200 font-light leading-relaxed">
-                        Sede Santa Cruz. Formamos profesionales de excelencia técnica, visión humana e investigación constante para responder a las demandas globales.
-                    </p>
-
-                    <!-- Quick Portals / Buttons -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
-                        <button onclick="openPortal('Docente')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium p-3.5 rounded-xl flex items-center justify-center sm:justify-start space-x-3 transition group">
-                            <div class="w-10 h-10 rounded-lg bg-uno-gold text-uno-navy flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-xs text-slate-300">Acceso</p>
-                                <p class="text-sm font-bold leading-tight">Docentes</p>
-                            </div>
-                        </button>
-
-                        <button onclick="openPortal('Alumno')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium p-3.5 rounded-xl flex items-center justify-center sm:justify-start space-x-3 transition group">
-                            <div class="w-10 h-10 rounded-lg bg-uno-gold text-uno-navy flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-xs text-slate-300">Portal</p>
-                                <p class="text-sm font-bold leading-tight">Estudiantes</p>
-                            </div>
-                        </button>
-
-                        <button onclick="openPortal('Calendario Académico')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium p-3.5 rounded-xl flex items-center justify-center sm:justify-start space-x-3 transition group">
-                            <div class="w-10 h-10 rounded-lg bg-uno-gold text-uno-navy flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-xs text-slate-300">Gestión 2026</p>
-                                <p class="text-sm font-bold leading-tight">Calendario</p>
-                            </div>
-                        </button>
-                    </div>
-
-                    <!-- Call To Action Direct WhatsApp -->
-                    <div class="pt-4 flex flex-wrap items-center gap-4">
-                        <a href="https://wa.me/59162241035?text=Deseo%20más%20información%20sobre%20carreras%20e%20inscripciones" target="_blank" class="bg-uno-green hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-xl flex items-center space-x-3 shadow-xl transition transform hover:-translate-y-0.5">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                            <span class="text-sm sm:text-base">Contáctanos por WhatsApp</span>
-                        </a>
-                        <a href="#carreras" class="bg-white hover:bg-slate-100 text-uno-navy font-bold px-6 py-3.5 rounded-xl flex items-center space-x-2 shadow-xl transition">
-                            <span>Explorar Carreras</span>
-                            <i class="fas fa-arrow-right text-sm"></i>
-                        </a>
-                    </div>
-                </div>
+        <section id="inicio" class="gradient-hero text-white relative py-12 px-4 overflow-hidden">
+            <div class="max-w-7xl mx-auto relative z-10 text-center">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">Portal de Actualidad UNO</h1>
+                <p class="text-lg text-slate-200 font-light">Descubre las últimas innovaciones, convenios y actividades de nuestra comunidad universitaria.</p>
             </div>
         </section>
 
-        <!-- Oferta Académica / Carreras -->
-        <section id="carreras" class="py-16 md:py-24 bg-slate-50">
+        <!-- SECCIÓN DE NOTICIAS -->
+        <section id="noticias" class="py-16 md:py-24 bg-slate-50 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Formación de Nivel Superior</h2>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-uno-navy">Nuestra Oferta Académica</h3>
-                    <p class="mt-3 text-slate-600 text-base sm:text-lg">Carreras universitarias diseñadas con visión práctica, laboratorios equipados e infraestructura moderna en Santa Cruz.</p>
+                
+                <!-- Encabezado de Sección -->
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Boletín Informativo</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-uno-navy">Últimas Noticias y Eventos</h3>
+                    <p class="mt-3 text-slate-600 text-sm md:text-base">Mantente informado sobre los avances académicos, proyectos de investigación y convenios institucionales.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Medicina -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=500&auto=format&fit=crop" alt="Medicina" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Medicina</h4>
-                                <p class="text-slate-600 text-sm mb-4">Formación integral médica con prácticas clínicas tempranas e internado en centros acreditados.</p>
-                            </div>
-                            <button onclick="showMedicineInfo()" aria-haspopup="dialog" aria-controls="medicine-dialog" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Odontología -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=500&auto=format&fit=crop" alt="Odontología" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Odontología</h4>
-                                <p class="text-slate-600 text-sm mb-4">Acceso a nuestra Clínica Odontológica propia con equipos de última generación.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Odontología', 'Licenciatura en Odontología', '5 Años', 'Ciencias de la Salud', 'Especialistas en salud bucodental, cirugía oral y rehabilitación estética.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Bioquímica y Farmacia -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=500&auto=format&fit=crop" alt="Bioquímica y Farmacia" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Bioquímica y Farmacia</h4>
-                                <p class="text-slate-600 text-sm mb-4">Investigación biomédica, análisis clínico y regencia farmacéutica aplicada.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Bioquímica y Farmacia', 'Licenciatura en Bioquímica y Farmacia', '5 Años', 'Ciencias de la Salud', 'Profesionales expertos en análisis clínicos, farmacología e investigación biológica.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Enfermería -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=500&auto=format&fit=crop" alt="Enfermería" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Enfermería</h4>
-                                <p class="text-slate-600 text-sm mb-4">Cuidado integral de la salud del paciente y gestión hospitalaria con calidad humana.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Enfermería', 'Licenciatura en Enfermería', '4 Años', 'Ciencias de la Salud', 'Líderes en cuidados de salud comunitaria y atención médica especializada.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Fisioterapia y Kinesiología -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=500&auto=format&fit=crop" alt="Fisioterapia y Kinesiología" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-uno-blue text-white text-xs font-bold px-2.5 py-1 rounded-md">Salud</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Fisioterapia y Kinesiología</h4>
-                                <p class="text-slate-600 text-sm mb-4">Rehabilitación física, kinesiología deportiva y terapia funcional avanzada.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Fisioterapia y Kinesiología', 'Licenciatura en Fisioterapia', '4 Años', 'Ciencias de la Salud', 'Especialistas en recuperación motora, rehabilitación deportiva e hidroterapia.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Ingeniería de Sistemas -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=500&auto=format&fit=crop" alt="Ingeniería de Sistemas" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-slate-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Tecnología</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Ingeniería de Sistemas</h4>
-                                <p class="text-slate-600 text-sm mb-4">Desarrollo de software, inteligencia artificial, redes e infraestructura cloud.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Ingeniería de Sistemas', 'Ingeniería de Sistemas', '5 Años', 'Tecnología e Ingeniería', 'Diseño e implementación de sistemas de software avanzados y arquitectura de redes.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Derecho -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=500&auto=format&fit=crop" alt="Derecho" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Sociales</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Derecho</h4>
-                                <p class="text-slate-600 text-sm mb-4">Ciencias jurídicas, litigación oral, derecho mercantil y derechos humanos.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Derecho', 'Licenciatura en Derecho', '5 Años', 'Ciencias Jurídicas', 'Abogados íntegros para el ejercicio público y privado con sólidas bases éticas.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Prótesis Dental -->
-                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
-                        <div class="h-44 bg-slate-200 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=500&auto=format&fit=crop" alt="Prótesis Dental" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-emerald-700 text-white text-xs font-bold px-2.5 py-1 rounded-md">Técnico Sup.</span>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-uno-navy mb-2">Prótesis Dental</h4>
-                                <p class="text-slate-600 text-sm mb-4">Especialidad en confección y diseño de dispositivos y prótesis bucofaciales.</p>
-                            </div>
-                            <button onclick="showCareerInfo('Prótesis Dental', 'Técnico Superior en Prótesis Dental', '3 Años', 'Técnico Superior', 'Formación práctica en tecnología de rehabilitación oral y laboratorio dental.')" class="w-full py-2.5 bg-slate-100 hover:bg-uno-blue hover:text-white text-uno-blue font-semibold rounded-lg text-sm transition text-center">
-                                Ver Plan de Estudios
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Red Universitaria / SubSedes Interactivas -->
-        <section id="subsedes" class="py-16 bg-white border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Red Universitaria</h2>
-                    <h3 class="text-3xl font-extrabold text-uno-navy">SubSedes y Centros de Extensión</h3>
-                    <p class="mt-2 text-slate-600">Explora nuestras subsedes y centros de extensión distribuidos estratégicamente.</p>
+                <!-- Filtros Interactivos -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10" id="news-filters">
+                    <button class="filter-btn active px-5 py-2 rounded-full text-sm font-bold bg-uno-blue text-white shadow-md transition transform hover:scale-105" data-filter="all">Todas</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="investigacion">Investigación</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="academico">Académico</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition transform hover:scale-105" data-filter="interaccion">Interacción Social</button>
                 </div>
 
-                <!-- Tabs de Sedes -->
-                <div class="flex flex-wrap justify-center gap-2 mb-8" id="sedes-tabs">
-                    <button onclick="switchSede('santacruz')" id="tab-santacruz" class="sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-blue text-white shadow-md transition">Santa Cruz de la Sierra</button>
-                    <button onclick="switchSede('montero')" id="tab-montero" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Montero</button>
-                    <button onclick="switchSede('cochabamba')" id="tab-cochabamba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Cochabamba</button>
-                    <button onclick="switchSede('shinahota')" id="tab-shinahota" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Shinahota y otra</button>
-                    <button onclick="switchSede('tarija')" id="tab-tarija" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tarija</button>
-                    <button onclick="switchSede('yacuiba')" id="tab-yacuiba" class="sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Yacuiba</button>
-                </div>
-
-                <!-- Panel de Detalle Sede -->
-                <div class="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-200 shadow-inner" id="sede-detail">
-                    <!-- Dinámico cargado por JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Requisitos de Admisión (Tabs) -->
-        <section id="requisitos" class="py-16 bg-slate-100">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest mb-2">Proceso de Inscripción</h2>
-                    <h3 class="text-3xl font-extrabold text-uno-navy">Requisitos de Admisión e Inscripciones 2026</h3>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-                    <!-- Tab Headers -->
-                    <div class="flex border-b border-slate-200">
-                        <button id="tab-nac" onclick="switchReq('nac')" class="w-1/2 py-4 px-6 text-center font-bold text-base bg-uno-blue text-white transition flex items-center justify-center">
-                            <i class="fas fa-flag mr-2 text-uno-gold"></i> Estudiantes Nacionales
-                        </button>
-                        <button id="tab-ext" onclick="switchReq('ext')" class="w-1/2 py-4 px-6 text-center font-bold text-base bg-slate-100 text-slate-600 hover:bg-slate-200 transition flex items-center justify-center">
-                            <i class="fas fa-globe-americas mr-2 text-uno-blue"></i> Estudiantes Extranjeros
-                        </button>
-                    </div>
-
-                    <!-- Content Nacionales -->
-                    <div id="content-nac" class="p-6 md:p-8 space-y-4">
-                        <h4 class="text-lg font-bold text-uno-navy mb-4 border-b pb-2">Documentación para Estudiantes Bolivianos:</h4>
-                        <ul class="space-y-3 text-slate-700">
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-gold mt-1 mr-3"></i> <span><strong>Fotocopia Legalizada del Título de Bachiller</strong> (o Certificado de Cédula Escolar).</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-gold mt-1 mr-3"></i> <span><strong>2 Fotocopias simples</strong> de Cédula de Identidad Vigente.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-gold mt-1 mr-3"></i> <span><strong>Certificado de Nacimiento Original</strong> (o fotocopia legalizada actualizada).</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-gold mt-1 mr-3"></i> <span><strong>3 Fotografías 3x4</strong> fondo blanco traje formal.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-gold mt-1 mr-3"></i> <span>Formulario de inscripción debidamente completado y firmado.</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Content Extranjeros -->
-                    <div id="content-ext" class="p-6 md:p-8 space-y-4 hidden">
-                        <h4 class="text-lg font-bold text-uno-navy mb-4 border-b pb-2">Documentación para Estudiantes Internacionales:</h4>
-                        <ul class="space-y-3 text-slate-700">
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-blue mt-1 mr-3"></i> <span><strong>Título de Bachiller / Secundaria:</strong> Apostillado por el Ministerio de Relaciones Exteriores del país de origen o Consulado.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-blue mt-1 mr-3"></i> <span><strong>Fotocopia de Pasaporte</strong> y Visa de Estudiante Vigente / Cédula de Identidad de Extranjero.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-blue mt-1 mr-3"></i> <span><strong>Certificado de Nacimiento Original</strong> apostillado.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-blue mt-1 mr-3"></i> <span><strong>Certificado de Antecedentes Policiales / Judiciales</strong> del país de origen.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle text-uno-blue mt-1 mr-3"></i> <span><strong>3 Fotografías 3x4</strong> fondo blanco.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Estadísticas & Red Alumni -->
-        <section id="alumni" class="py-16 bg-uno-navy text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-b border-slate-700/60 pb-12 mb-12">
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">+20,000</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Graduados Egresados</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">8</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Carreras Profesionales</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">6</span>
-                        <span class="text-sm text-slate-300 mt-1 block">SubSedes Nacionales</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl sm:text-5xl font-black text-uno-gold">25+</span>
-                        <span class="text-sm text-slate-300 mt-1 block">Años de Trayectoria</span>
-                    </div>
-                </div>
-
-                <div class="max-w-3xl mx-auto text-center">
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-4">Red Alumni - Comunidad de Graduados UNO</h3>
-                    <p class="text-slate-300 text-sm sm:text-base mb-6">Mantenemos el vínculo profesional con nuestros egresados brindando seguimiento laboral, diplomados de actualización y redes de contacto institucional en todo el país.</p>
-                    <button onclick="alert('Portal de Red Alumni en mantenimiento. Próximamente registro de egresados.')" class="bg-uno-gold hover:bg-yellow-500 text-uno-navy font-bold px-6 py-3 rounded-lg shadow-md transition">
-                        <i class="fas fa-users mr-2"></i> Unirse a la Red Alumni
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Últimas Noticias -->
-        <section id="noticias" class="py-16 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
-    <div>
-        <h2 class="text-xs font-bold text-uno-gold uppercase tracking-widest">Acontecimientos UNO</h2>
-        <h3 class="text-3xl font-extrabold text-uno-navy">Últimas Noticias y Eventos Universitarios</h3>
-    </div>
-    <button onclick="alert('Cargando más noticias...')" class="bg-uno-blue hover:bg-uno-navy text-white text-sm font-bold py-2 px-4 rounded-lg shadow-md transition flex items-center">
-        Ver todas las noticias <i class="fas fa-arrow-right ml-2"></i>
-    </button>
-</div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Grid de Noticias -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+                    
                     <!-- Noticia 1 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=400&auto=format&fit=crop" alt="Simposio" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Investigación</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Simposio Internacional de Salud y Biotecnología 2026</h4>
-                            <p class="text-slate-600 text-sm mb-4">Estudiantes de Medicina y Bioquímica participaron de exposiciones con docentes ponentes internacionales.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 18 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="investigacion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop" alt="Simposio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-uno-blue/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Investigación</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 24 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Simposio Internacional de Salud, Biotecnología y Robótica Avanzada</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Estudiantes de Medicina e Ingeniería participaron en demostraciones de cirugía robótica con ponentes de la Universidad de São Paulo.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Noticia 2 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400&auto=format&fit=crop" alt="Convenio" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Convenios</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Firma de Convenio para Prácticas Profesionales</h4>
-                            <p class="text-slate-600 text-sm mb-4">Nuevas alianzas estratégicas con centros hospitalarios y empresas del sector de ingeniería en Santa Cruz.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 10 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="academico">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop" alt="Convenio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Académico</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 18 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Firma de Convenio para Prácticas en Hospitales de Tercer Nivel</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Nuevas alianzas estratégicas garantizan que nuestros estudiantes de Ciencias de la Salud realicen internados en los mejores centros médicos.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Noticia 3 -->
-                    <article class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 card-hover">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="Feria" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-uno-blue uppercase">Interacción Social</span>
-                            <h4 class="text-lg font-bold text-uno-navy mt-1 mb-2">Feria Universitaria de Innovación y Tecnología</h4>
-                            <p class="text-slate-600 text-sm mb-4">Presentación de proyectos multidisciplinarios desarrollados por estudiantes de Ingeniería de Sistemas.</p>
-                            <span class="text-xs text-slate-400"><i class="far fa-calendar mr-1"></i> 02 de Octubre, 2026</span>
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="interaccion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Feria" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Interacción Social</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 10 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Feria de Innovación: Sistema de Preconvalidación UNO</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Estudiantes de la materia Gestión de Configuración de Software presentaron el nuevo sistema automatizado para admisiones.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
                         </div>
                     </article>
+
+                    <!-- Noticia 4 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="investigacion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop" alt="Laboratorio" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-uno-blue/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Investigación</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 05 de Octubre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Publicación en Revista Científica de Bioquímica Farmacéutica</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Docentes investigadores de la UNO logran importante publicación sobre extractos botánicos endémicos del oriente boliviano.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 5 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="academico">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop" alt="Odontología" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Académico</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 28 de Septiembre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Inauguración de la Nueva Clínica Odontológica 2.0</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Nuevos sillones equipados con tecnología digital y rayos X de última generación están listos para la práctica estudiantil.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 6 -->
+                    <article class="news-item bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-hover" data-category="interaccion">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600&auto=format&fit=crop" alt="Campaña" class="w-full h-full object-cover img-zoom">
+                            <span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Interacción Social</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-slate-400 mb-3">
+                                <span class="flex items-center"><i class="far fa-calendar-alt mr-1.5 text-uno-gold"></i> 15 de Septiembre, 2026</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-uno-navy mb-3 line-clamp-2">Campaña de Salud Preventiva en los Distritos de Santa Cruz</h4>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Brigadas de Enfermería y Fisioterapia brindaron atención gratuita a más de 500 familias en zonas vulnerables.</p>
+                            <a href="#" class="inline-flex items-center text-uno-blue font-bold text-sm hover:text-uno-gold transition group">
+                                Leer noticia completa <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Información oficial de Medicina, sede Santa Cruz -->
-    <dialog id="medicine-dialog" class="medicine-dialog" aria-labelledby="medicine-title">
-        <div class="medicine-header">
-            <div><p>CIENCIAS DE LA SALUD · SEDE SANTA CRUZ</p><h2 id="medicine-title">Medicina</h2></div>
-            <button type="button" class="medicine-close" onclick="document.getElementById('medicine-dialog').close()" aria-label="Cerrar información de Medicina" autofocus>×</button>
-        </div>
-        <div id="medicine-content" class="medicine-content"></div>
-    </dialog>
-
-    <!-- Modal Generico para Carrera / Info -->
-    <div id="modal-info" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative animate-fadeIn">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            <div id="modal-body">
-                <!-- Contenido Dinámico -->
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer id="contacto" class="bg-uno-navy text-white border-t-4 border-uno-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Columna 1: Logo e Info -->
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-uno-blue rounded-lg flex items-center justify-center text-white font-black text-xl border border-uno-gold">
-                            UNO
-                        </div>
-                        <span class="font-extrabold text-lg text-white">UNIVERSIDAD UNO</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Universidad Nacional del Oriente - Sede Santa Cruz. Institución de educación superior dedicada a la formación científica, profesional y humana.
-                    </p>
-                    <div class="flex space-x-3 pt-2">
-                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-uno-gold hover:text-uno-navy flex items-center justify-center transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-uno-gold hover:text-uno-navy flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-uno-gold hover:text-uno-navy flex items-center justify-center transition"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <!-- Columna 2: Sedes Santa Cruz -->
-                <div>
-                    <h5 class="text-uno-gold font-bold uppercase text-sm mb-4 tracking-wider">Edificios Santa Cruz</h5>
-                    <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-uno-gold mt-1 mr-2"></i>
-                            <span><strong>Edificio Central:</strong> Calle Libertad esq. Andrés Ibáñez. <br><span class="text-slate-400">Telf: (591) 3 333-7577</span></span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-hospital-user text-uno-gold mt-1 mr-2"></i>
-                            <span><strong>Ciencias de la Salud:</strong> Calle 24 de Septiembre e/ Cuellar y Seoane. <br><span class="text-slate-400">Telf: 62241035 / 62241036</span></span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Columna 3: Clínica y Contacto -->
-                <div>
-                    <h5 class="text-uno-gold font-bold uppercase text-sm mb-4 tracking-wider">Clínica & Atención</h5>
-                    <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-tooth text-uno-gold mt-1 mr-2"></i>
-                            <span><strong>Clínica Odontológica:</strong> Calle España esq. Florida #220. <br><span class="text-slate-400">Telf: 3 337-7951</span></span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope text-uno-gold mt-1 mr-2"></i>
-                            <span><strong>Email Oficial:</strong> <br><a href="mailto:informaciones@uno.edu.bo" class="text-slate-300 hover:text-uno-gold">informaciones@uno.edu.bo</a></span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Columna 4: Enlaces Rápidos -->
-                <div>
-                    <h5 class="text-uno-gold font-bold uppercase text-sm mb-4 tracking-wider">Acceso Rápido</h5>
-                    <ul class="space-y-2 text-sm text-slate-300">
-                        <li><a href="#carreras" class="hover:text-uno-gold transition">Carreras Universitarias</a></li>
-                        <li><a href="#subsedes" class="hover:text-uno-gold transition">SubSedes Nacionales</a></li>
-                        <li><a href="#requisitos" class="hover:text-uno-gold transition">Requisitos de Admisión</a></li>
-                        <li><a href="#noticias" class="hover:text-uno-gold transition">Noticias Institucionales</a></li>
-                        <li><a href="https://wa.me/59162241035" target="_blank" class="text-uno-green hover:underline font-bold">Contacto Directo WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Bottom Copyright -->
-            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-                <p>Copyright © 2026 <strong>UNIVERSIDAD NACIONAL DEL ORIENTE (UNO)</strong>. Todos los derechos reservados.</p>
-                <p class="mt-1 text-slate-500">Sede Santa Cruz de la Sierra - Bolivia</p>
-            </div>
+        <div class="pt-8 pb-4 border-t border-slate-800 text-center text-xs text-slate-400">
+            <p>Copyright © 2026 <strong>UNIVERSIDAD NACIONAL DEL ORIENTE (UNO)</strong>. Todos los derechos reservados.</p>
+            <p class="mt-1 text-slate-500">Desarrollado para el Examen de Configuración de Software</p>
         </div>
     </footer>
 
-    <script src="assets/medicina.js"></script>
-    <!-- Script Vanilla JS -->
-    <script>
-        // Datos de SubSedes
-        const sedesData = {
-            santacruz: {
-                nombre: "SubSede Santa Cruz de la Sierra (Sede Central)",
-                direccion: "Calle Libertad esq. Andrés Ibáñez / Calle 24 de Septiembre",
-                telefono: "333-7577 / 62241035",
-                detalles: "Cuenta con Laboratorios de Anatomía, Farmacia, Clínica Odontológica acreditada, Aulas Digitales y Centro de Cómputo.",
-                imagen: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop"
-            },
-            montero: {
-                nombre: "SubSede Montero",
-                direccion: "Av. Principal del Norte, Montero - Santa Cruz",
-                telefono: "3 922-4000",
-                detalles: "Infraestructura académica completa para la formación en salud y área comercial para el norte integrado.",
-                imagen: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop"
-            },
-            cochabamba: {
-                nombre: "SubSede Cochabamba",
-                direccion: "Zona Central, Cochabamba",
-                telefono: "4 450-8000",
-                detalles: "Sede equipada para el área de salud, medicina e investigación en el valle boliviano.",
-                imagen: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop"
-            },
-            shinahota: {
-                nombre: "SubSede Shinahota",
-                direccion: "Trópico de Cochabamba, Shinahota",
-                telefono: "4 413-6000",
-                detalles: "Formación académica profesional con compromiso con el desarrollo regional rural y comunitario.",
-                imagen: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=600&auto=format&fit=crop"
-            },
-            tarija: {
-                nombre: "SubSede Tarija",
-                direccion: "Zona Universitaria, Tarija",
-                telefono: "4 664-3000",
-                detalles: "Campus moderno integrado con clínicas universitarias y salas de simulación clínica.",
-                imagen: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop"
-            },
-            yacuiba: {
-                nombre: "SubSede Yacuiba",
-                direccion: "Gran Chaco, Yacuiba",
-                telefono: "4 682-2000",
-                detalles: "Atención educativa superior para la región fronteriza del Gran Chaco boliviano.",
-                imagen: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop"
-            }
-        };
-
-        // Menú Hamburguesa Móvil
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = 'fas fa-bars text-2xl';
-            } else {
-                menuIcon.className = 'fas fa-times text-2xl';
-            }
-        });
-
-        // Cambio de Sede
-        function switchSede(key) {
-            const data = sedesData[key];
-            const detailContainer = document.getElementById('sede-detail');
-            
-            // Actualizar estilo botones
-            document.querySelectorAll('.sede-btn').forEach(btn => {
-                btn.className = 'sede-btn px-5 py-2.5 rounded-full font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
-            });
-            document.getElementById(`tab-${key}`).className = 'sede-btn px-5 py-2.5 rounded-full font-bold text-sm bg-uno-blue text-white shadow-md transition';
-
-            // Renderizar contenido
-            detailContainer.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div>
-                        <span class="text-xs font-bold text-uno-gold uppercase tracking-wider">SubSede Seleccionada</span>
-                        <h4 class="text-2xl font-bold text-uno-navy mb-3">${data.nombre}</h4>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">${data.detalles}</p>
-                        <div class="space-y-2 text-sm text-slate-700">
-                            <p class="flex items-center"><i class="fas fa-map-pin text-uno-blue mr-2"></i> <strong>Dirección:</strong> ${data.direccion}</p>
-                            <p class="flex items-center"><i class="fas fa-phone-alt text-uno-blue mr-2"></i> <strong>Teléfono Contacto:</strong> ${data.telefono}</p>
-                        </div>
-                        <div class="mt-6">
-                            <a href="https://wa.me/59162241035?text=Hola,%20quisiera%20información%20sobre%20la%20sede%20${encodeURIComponent(data.nombre)}" target="_blank" class="inline-flex items-center bg-uno-blue hover:bg-uno-navy text-white text-xs font-bold px-4 py-2.5 rounded-lg transition">
-                                Consultar en esta Sede <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="h-56 md:h-64 rounded-xl overflow-hidden shadow-md">
-                        <img src="${data.imagen}" alt="${data.nombre}" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            `;
-        }
-
-        // Cambio de Requisitos (Nacionales / Extranjeros)
-        function switchReq(type) {
-            const tabNac = document.getElementById('tab-nac');
-            const tabExt = document.getElementById('tab-ext');
-            const contentNac = document.getElementById('content-nac');
-            const contentExt = document.getElementById('content-ext');
-
-            if (type === 'nac') {
-                tabNac.className = 'w-1/2 py-4 px-6 text-center font-bold text-base bg-uno-blue text-white transition flex items-center justify-center';
-                tabExt.className = 'w-1/2 py-4 px-6 text-center font-bold text-base bg-slate-100 text-slate-600 hover:bg-slate-200 transition flex items-center justify-center';
-                contentNac.classList.remove('hidden');
-                contentExt.classList.add('hidden');
-            } else {
-                tabExt.className = 'w-1/2 py-4 px-6 text-center font-bold text-base bg-uno-blue text-white transition flex items-center justify-center';
-                tabNac.className = 'w-1/2 py-4 px-6 text-center font-bold text-base bg-slate-100 text-slate-600 hover:bg-slate-200 transition flex items-center justify-center';
-                contentExt.classList.remove('hidden');
-                contentNac.classList.add('hidden');
-            }
-        }
-
-        // Modal de Información de Carrera
-        function showCareerInfo(titulo, grado, duracion, area, descripcion) {
-            const modal = document.getElementById('modal-info');
-            const body = document.getElementById('modal-body');
-            body.innerHTML = `
-                <div class="text-center mb-4">
-                    <span class="bg-uno-gold/20 text-uno-navy text-xs font-bold px-3 py-1 rounded-full uppercase">${area}</span>
-                    <h3 class="text-2xl font-extrabold text-uno-navy mt-2">${titulo}</h3>
-                    <p class="text-xs text-slate-500">${grado} • Duración: ${duracion}</p>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6 text-center">${descripcion}</p>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 text-xs text-slate-700 space-y-2">
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Modalidad: Presencial</p>
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Horarios: Mañana, Tarde y Noche</p>
-                    <p class="flex items-center"><i class="fas fa-check text-uno-gold mr-2"></i> Título en Provisión Nacional</p>
-                </div>
-                <div class="flex gap-3">
-                    <button onclick="closeModal()" class="w-1/2 py-2.5 bg-slate-200 text-slate-700 font-bold rounded-lg text-sm hover:bg-slate-300 transition">Cerrar</button>
-                    <a href="https://wa.me/59162241035?text=Hola,%20deseo%20más%20información%20sobre%20la%20carrera%20de%20${encodeURIComponent(titulo)}" target="_blank" class="w-1/2 py-2.5 bg-uno-green text-white font-bold rounded-lg text-sm text-center hover:bg-emerald-600 transition flex items-center justify-center">
-                        <i class="fab fa-whatsapp mr-1"></i> Inscribirme
-                    </a>
-                </div>
-            `;
-            modal.classList.remove('hidden');
-        }
-
-        // Modal de Información Nosostros
-        function showAboutModal(titulo, contenido) {
-            const modal = document.getElementById('modal-info');
-            const body = document.getElementById('modal-body');
-            body.innerHTML = `
-                <div class="mb-4">
-                    <h3 class="text-2xl font-extrabold text-uno-navy border-b pb-2">${titulo}</h3>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">${contenido}</p>
-                <button onclick="closeModal()" class="w-full py-2.5 bg-uno-blue text-white font-bold rounded-lg text-sm hover:bg-uno-navy transition">
-                    Entendido
-                </button>
-            `;
-            modal.classList.remove('hidden');
-        }
-
-        // Abrir Portales Rápido
-        function openPortal(nombre) {
-            showAboutModal(`Portal ${nombre}`, `Estás accediendo al módulo de ${nombre}. Para ingresar debes contar con tus credenciales de usuario proporcionadas por la dirección académica de UNO Sede Santa Cruz.`);
-        }
-
-        function closeModal() {
-            document.getElementById('modal-info').classList.add('hidden');
-        }
-
-        // Inicializar Sede por defecto
-        window.addEventListener('DOMContentLoaded', () => {
-            switchSede('santacruz');
-        });
-
-        
-    </script>
+    <!-- 2. AQUÍ ESTÁ EL ENLACE A TU NUEVO ARCHIVO JS EXTERNO -->
+    <script src="assets/script.js"></script>
 </body>
 </html>
